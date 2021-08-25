@@ -1,9 +1,18 @@
-if (process.env.USER) require("dotenv").config();
+require("dotenv").config();
 const express = require("express");
 const app = express();
+
+const { CORS_ORIGIN = "http://localhost:3000" } = process.env;
+
 const cors = require("cors");
 
-app.use(cors());
+console.log(CORS_ORIGIN);
+app.use(
+  cors({
+    origin: CORS_ORIGIN,
+  })
+);
+
 app.use(express.json());
 
 app.use("/movies", require("./movies/movies.router"));

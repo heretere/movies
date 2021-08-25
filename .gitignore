@@ -236,3 +236,4 @@ dist
 /.attachignore
 /docs/
 /package-lock.json
+!/.env
